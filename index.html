@@ -9,11 +9,14 @@
           var sceneEl = document.querySelector('a-scene');  // Or this.el since we're in a component.
           
           var counter = 1
-          const colors = ["Red", "Blue", "Yellow"]
-          for (var i = 0; i < 20; i++) {
-            var xPos = Math.random() * 20 - 10
-            var yPos = Math.random() * 20 - 10
+          const colors = ["Orange", "DarkBlue", "Yellow"]
+          for (var i = 0; i < 50; i++) {
+            var xPos = Math.random() * 40 - 20
+            var yPos = Math.random() * 40 - 20
             var zPos = -10
+            var xScale = Math.floor(Math.random() * 2) + 1
+            var yScale = Math.floor(Math.random() * 2) + 1
+            console.log(xScale);
             for (var j = 0; j < 20; j++) {
               var boxEl = document.createElement('a-box');
               if (counter % 3 == 0) {
@@ -24,7 +27,7 @@
                 boxEl.setAttribute('material', {color: colors[0]});
               }
               boxEl.setAttribute('position', {x: xPos, y: yPos, z: zPos});
-              boxEl.setAttribute('scale', {x: 1, y: 1, z: 0.01});
+              boxEl.setAttribute('scale', {x: xScale, y: yScale, z: 0.01});
               sceneEl.appendChild(boxEl);
               zPos += 1;
             }
